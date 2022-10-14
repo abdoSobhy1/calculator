@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'League Spartan', sans-serif;
+    background-color: hsl(222, 26%, 31%);
+    transition: 0.3s;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    flex-flow: row wrap;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50vw;
+}
+
+@media (max-width:768px) {
+    .content {
+        width: 100vw;
+        padding: 20px;
+    }
+}
+
+.content .screen {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: white;
+    transition: 0.3s;
+}
+
+.content .screen .title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.content .screen .title>span {
+    font-size: 30px;
+    align-self: flex-end;
+}
+
+.content .screen .title .theme-selector .number {
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+
+.content .screen .title .theme-selector .input {
+    width: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.content .screen .title .theme-selector .input .text {
+    font-size: 14px;
+    margin-left: -160px;
+}
+
+.content .screen .title .theme-selector .input input[type="range"] {
+    -webkit-appearance: none;
+    margin-right: 15px;
+    width: 100%;
+    height: 7px;
+    background: #252e42;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.content .screen .title .theme-selector .input input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #C14439;
+    cursor: ew-resize;
+    transition: background .3s ease-in-out;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.content .screen .title .theme-selector .input input[type=range]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: #252e42;
+    padding: 4px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.content .screen .scr {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    height: 110px;
+    font-size: 50px;
+}
+
+.content .screen .scr:disabled {
+    background-color: hsl(224, 36%, 15%);
+    color: hsl(221, 14%, 31%);
+    color: white;
+    font-family: 'League Spartan', sans-serif;
+    direction: rtl;
+    padding: 20px;
+    outline: none;
+    border: none;
+    transition: 0.3s;
+}
+
+.content .buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: hsl(223, 31%, 20%);
+    z-index: 0;
+    padding: 15px 30px;
+    padding-right: 0px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.content .buttons div {
+    width: calc((100% - 150px)/4);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(30, 25%, 89%);
+    margin: 15px 30px 15px 0;
+    position: relative;
+    border-radius: 10px;
+    font-size: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.content .buttons div::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: hsl(28, 16%, 65%);
+    border-radius: 10px;
+    z-index: -1;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.content .buttons .equal {
+    color: white;
+    background-color: hsl(6, 63%, 50%);
+    width: calc((100% - 90px)/2);
+    transition: 0.3s;
+}
+
+.content .buttons .equal::after {
+    background-color: hsl(6, 70%, 34%);
+    transition: 0.3s;
+}
+
+.content .buttons .reset {
+    color: white;
+    background-color: hsl(225, 21%, 49%);
+    width: calc((100% - 90px)/2);
+    transition: 0.3s;
+}
+
+.content .buttons .delete {
+    color: white;
+    background-color: hsl(225, 21%, 49%);
+    transition: 0.3s;
+}
+
+.content .buttons .reset::after,
+.content .buttons .delete::after {
+    background-color: hsl(224, 28%, 35%);
+    transition: 0.3s;
+}
+
+@media (max-width:768px) {
+    .content .buttons {
+        padding: 15px;
+    }
+
+    .content .buttons div {
+        width: calc((100% - 75px)/4);
+        margin: 15px 15px 15px 0;
+    }
+
+    .content .buttons .reset,
+    .content .buttons .equal {
+        width: calc((100% - 45px)/2);
+    }
+}
+
+.attribution {
+    width: 100vw;
+    text-align: center;
+    color: white;
+    transition: 0.3s;
+}
+
+.attribution a {
+    color: white;
+    transition: 0.3s;
+}
+
+/* theme2 */
+
+body.theme2 {
+    background-color: hsl(0, 0%, 90%);
+}
+
+body.theme2 .content .screen .title .theme-selector .input input[type="range"] {
+    background-color: hsl(0, 5%, 81%);
+}
+
+body.theme2 .content .screen .title .theme-selector .input input[type="range"]::-webkit-slider-thumb {
+    background-color: hsl(25, 98%, 40%);
+}
+
+body.theme2 .content .screen .title .theme-selector .input input[type=range]::-webkit-slider-runnable-track {
+    background-color: hsl(0, 5%, 81%);
+}
+
+body.theme2 .content .screen {
+    color: hsl(60, 10%, 19%);
+}
+
+body.theme2 .content .screen .scr:disabled {
+    background-color: hsl(0, 0%, 93%);
+    color: hsl(60, 10%, 19%);
+}
+
+body.theme2 .content .buttons {
+    background-color: hsl(0, 5%, 81%);
+    color: hsl(60, 10%, 19%);
+}
+
+body.theme2 .content .buttons div {
+    background-color: hsl(45, 7%, 89%);
+}
+
+body.theme2 .content .buttons div::after {
+    background-color: hsl(35, 11%, 61%);
+}
+
+body.theme2 .content .buttons .equal {
+    background-color: hsl(25, 98%, 40%)
+}
+
+body.theme2 .content .buttons .equal::after {
+    background-color: hsl(25, 99%, 27%)
+}
+
+body.theme2 .content .buttons .reset,
+body.theme2 .content .buttons .delete {
+    background-color: hsl(185, 42%, 37%)
+}
+
+body.theme2 .content .buttons .reset::after,
+body.theme2 .content .buttons .delete::after {
+    background-color: hsl(185, 58%, 25%)
+}
+
+body.theme2 .attribution {
+    color: hsl(60, 10%, 19%);
+}
+
+body.theme2 .attribution a {
+    color: hsl(60, 10%, 19%);
+}
+
+/* theme3 */
+
+body.theme3 {
+    background-color: hsl(268, 75%, 9%);
+}
+
+body.theme3 .content .screen .title .theme-selector .input input[type="range"] {
+    background-color: hsl(268, 71%, 12%);
+}
+
+body.theme3 .content .screen .title .theme-selector .input input[type="range"]::-webkit-slider-thumb {
+    background-color: hsl(176, 100%, 44%);
+}
+
+body.theme3 .content .screen .title .theme-selector .input input[type=range]::-webkit-slider-runnable-track {
+    background-color: hsl(268, 71%, 12%);
+}
+
+body.theme3 .content .screen {
+    color: hsl(52, 100%, 62%);
+}
+
+body.theme3 .content .screen .scr:disabled {
+    background-color: hsl(268, 71%, 12%);
+    color: hsl(52, 100%, 62%);
+}
+
+body.theme3 .content .buttons {
+    background-color: hsl(268, 71%, 12%);
+    color: hsl(52, 100%, 62%);
+}
+
+body.theme3 .content .buttons div {
+    background-color: hsl(268, 47%, 21%);
+}
+
+body.theme3 .content .buttons div::after {
+    background-color: hsl(290, 70%, 36%);
+}
+
+body.theme3 .content .buttons .equal {
+    background-color: hsl(176, 100%, 44%);
+    color: hsl(198, 20%, 13%);
+}
+
+body.theme3 .content .buttons .equal::after {
+    background-color: hsl(177, 92%, 70%)
+}
+
+body.theme3 .content .buttons .reset,
+body.theme3 .content .buttons .delete {
+    background-color: hsl(281, 89%, 26%)
+}
+
+body.theme3 .content .buttons .reset::after,
+body.theme3 .content .buttons .delete::after {
+    background-color: hsl(285, 91%, 52%)
+}
+
+body.theme3 .attribution {
+    color: white;
+}
+
+body.theme3 .attribution a {
+    color: white;
+}
