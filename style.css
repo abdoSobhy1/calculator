@@ -116,6 +116,7 @@ a {
     border-radius: 10px;
     height: 110px;
     font-size: 50px;
+    user-select: none;
 }
 
 .content .screen .scr:disabled {
@@ -123,10 +124,11 @@ a {
     color: hsl(221, 14%, 31%);
     color: white;
     font-family: 'League Spartan', sans-serif;
-    direction: rtl;
+    text-align: right;
     padding: 20px;
     outline: none;
     border: none;
+    user-select: none;
     transition: 0.3s;
 }
 
@@ -159,6 +161,7 @@ a {
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.3s;
+    user-select: none;
 }
 
 .content .buttons div::after {
