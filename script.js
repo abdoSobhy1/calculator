@@ -74,24 +74,21 @@ function calculate() {
   if (theOperation == "sum") {
     secondNumber = Number(outPut.value);
     answer = firstNumber + secondNumber;
-    outPut.value = answer;
   } else if (theOperation == "sub") {
     secondNumber = Number(outPut.value);
     answer = firstNumber - secondNumber;
-    outPut.value = answer;
   } else if (theOperation == "multiply") {
     secondNumber = Number(outPut.value);
     answer = firstNumber * secondNumber;
-    outPut.value = answer;
   } else if (theOperation == "division") {
     secondNumber = Number(outPut.value);
     if (secondNumber == 0) {
       answer = "Can't devide by zero";
     } else {
       answer = firstNumber / secondNumber;
-      outPut.value = answer;
     }
   }
+  outPut.value = answer;
   firstNumber = "";
   secondNumber = "";
   theOperation = "";

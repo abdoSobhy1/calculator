@@ -163,6 +163,7 @@ a {
     cursor: pointer;
     transition: 0.3s;
     user-select: none;
+    bottom: 0;
 }
 
 .content .buttons div::after {
@@ -172,9 +173,18 @@ a {
     width: 100%;
     background-color: hsl(28, 16%, 65%);
     border-radius: 10px;
-    z-index: -1;
+    z-index: -99999;
     bottom: -5px;
+    transform-origin: bottom;
     transition: 0.3s;
+}
+
+.content .buttons div:hover {
+    bottom: -5px;
+}
+
+.content .buttons div:hover::after {
+    bottom: -0px;
 }
 
 .content .buttons .equal {
