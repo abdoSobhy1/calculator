@@ -33,18 +33,26 @@ buttons.forEach((button) => {
       del(button.innerHTML);
     } else if (button.innerHTML == "Reset") {
       del(button.innerHTML);
-    } else {
+    } else if (button.innerHTML == ".") {
       decimal();
+    } else {
+      specialfn(button.innerHTML);
     }
   });
 });
 function inputIncrease(button) {
+  if (outPut.value.includes("NAN") || outPut.value.includes("by")) {
+    outPut.value = "";
+  }
   outPut.value += button.innerHTML;
 }
 let theOperation = "";
 let firstNumber = "";
 let secondNumber = "";
 function operation(operator) {
+  if (spcfn) {
+    return;
+  }
   if (operator.innerHTML == "+") {
     theOperation = "sum";
     firstNumber = Number(outPut.value);
@@ -69,9 +77,37 @@ function operation(operator) {
     outPut.value = "";
   }
 }
+let spcfn = false;
+function specialfn(special) {
+  spcfn = true;
+  if (outPut.value == "") {
+    if (special == "cos(x)") {
+      outPut.value = "cos(";
+      theOperation = "cos";
+    } else if (special == "sin(x)") {
+      outPut.value = "sin(";
+      theOperation = "sin";
+    } else if (special == "√") {
+      theOperation = "sqrt";
+      outPut.value = "√(";
+    }
+  } else {
+    if (special == "x²") {
+      if (outPut.value.includes("²")) {
+        return;
+      } else {
+        theOperation = "sqr";
+        outPut.value += "²";
+      }
+    }
+  }
+}
 let answer = "";
 function calculate() {
-  if (firstNumber == "") {
+  if (
+    firstNumber == "" &&
+    !["cos", "sin", "sqrt", "sqr"].includes(theOperation)
+  ) {
     return;
   }
   if (theOperation == "sum") {
@@ -90,11 +126,24 @@ function calculate() {
     } else {
       answer = firstNumber / secondNumber;
     }
+  } else if (theOperation == "cos") {
+    firstNumber = outPut.value.replace("cos(", "");
+    answer = Math.cos(firstNumber * (Math.PI / 180)).toFixed(2);
+  } else if (theOperation == "sin") {
+    firstNumber = outPut.value.replace("sin(", "");
+    answer = Math.sin(firstNumber * (Math.PI / 180)).toFixed(2);
+  } else if (theOperation == "sqrt") {
+    firstNumber = outPut.value.replace("√(", "");
+    answer = Math.sqrt(firstNumber);
+  } else if (theOperation == "sqr") {
+    firstNumber = outPut.value.replace("²", "");
+    answer = firstNumber ** 2;
   }
   outPut.value = answer;
   firstNumber = "";
   secondNumber = "";
   theOperation = "";
+  spcfn = false;
 }
 
 function del(type) {
