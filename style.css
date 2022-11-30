@@ -196,12 +196,12 @@ a {
 }
 
 .content .buttons div {
-    color: var(--key-text);
-    width: 100%;
-    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 80px;
+    color: var(--key-text);
     background-color: var(--third-key);
     position: relative;
     border-radius: 10px;
@@ -209,9 +209,9 @@ a {
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
-    transition: 0.3s;
     user-select: none;
     bottom: 0;
+    transition: 0.3s;
 }
 
 .content .buttons div::after {
