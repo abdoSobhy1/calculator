@@ -184,30 +184,25 @@ a {
 }
 
 .content .buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 15px;
     width: 100%;
     background-color: var(--toggle-keypad-bg);
     z-index: 0;
-    --spacing: 20px;
-    padding: 15px var(--spacing);
-    padding-right: 0px;
+    padding: 15px 20px;
     border-radius: 10px;
     transition: 0.3s;
 }
 
 .content .buttons div {
     color: var(--key-text);
-    width: calc((100% - var(--spacing) * 5)/4);
+    width: 100%;
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--third-key);
-    margin: 10px var(--spacing) 15px 0;
     position: relative;
     border-radius: 10px;
     font-size: 2rem;
@@ -243,7 +238,7 @@ a {
 .content .buttons .equal {
     color: var(--white-text);
     background-color: var(--key-bg-toggle);
-    width: calc((100% - var(--spacing) * 3)/2);
+    grid-column: span 2;
     transition: 0.3s;
 }
 
@@ -258,8 +253,8 @@ a {
 
 .content .buttons .reset {
     color: var(--white-text);
+    grid-column: span 2;
     background-color: var(--key-bg);
-    width: calc((100% - var(--spacing) * 3)/2);
     transition: 0.3s;
 }
 
@@ -277,18 +272,8 @@ a {
 
 @media (max-width:768px) {
     .content .buttons {
-        padding: 0 10px 15px;
-        gap: 10px;
-    }
-
-    .content .buttons div {
-        width: calc((100% - 40px)/4);
-        margin: 10px 0 0;
-    }
-
-    .content .buttons .reset,
-    .content .buttons .equal {
-        width: calc((100% - 20px)/2);
+        padding: 15px;
+        gap: 20px 15px;
     }
 }
 
