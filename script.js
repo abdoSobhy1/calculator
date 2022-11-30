@@ -50,13 +50,13 @@ function operation(operator) {
     firstNumber = Number(outPut.value);
     outPut.value = "";
   } else if (operator.innerHTML == "-") {
-    theOperation = "sub";
     if (outPut.value == "") {
       outPut.value += "-";
-    } else if (outpu.value == "-") {
+    } else if (outPut.value == "-") {
       return;
     } else {
       firstNumber = Number(outPut.value);
+      theOperation = "sub";
       outPut.value = "";
     }
   } else if (operator.innerHTML == "×") {
@@ -71,6 +71,9 @@ function operation(operator) {
 }
 let answer = "";
 function calculate() {
+  if (firstNumber == "") {
+    return;
+  }
   if (theOperation == "sum") {
     secondNumber = Number(outPut.value);
     answer = firstNumber + secondNumber;
